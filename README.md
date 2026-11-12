@@ -71,10 +71,33 @@ pio device monitor
 
 The first command uploads the firmware, the second uploads the setup page and the third opens the serial monitor. Hold the BOOT button if the upload is stuck at "Connecting...".
 
-On Windows, if pio is not recognised in a normal terminal, use the PlatformIO terminal or the full path:
+If pio is not recognised in a normal terminal, use the PlatformIO terminal in VS Code (PlatformIO icon → Miscellaneous → New Terminal), or call it by its full path:
+
+Windows (PowerShell):
 
 ```powershell
 & "$HOME\.platformio\penv\Scripts\pio.exe" run -t upload
+```
+
+Mac and Linux:
+
+```bash
+~/.platformio/penv/bin/pio run -t upload
+```
+
+To use plain pio everywhere on Mac or Linux, add it to your PATH once:
+
+```bash
+echo 'export PATH="$PATH:$HOME/.platformio/penv/bin"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+On Mac the default shell is zsh, so use ~/.zshrc instead of ~/.bashrc in both lines.
+
+On Linux, if the upload fails with a permission error on the USB port (for example /dev/ttyUSB0), add your user to the dialout group, then log out and back in:
+
+```bash
+sudo usermod -a -G dialout $USER
 ```
 
 ### Set up Wi-Fi
@@ -112,7 +135,8 @@ Copy everything inside frontend/dist into firmware/data, then run pio run -t upl
 - Dashboard will not load on the network: some school and office networks block devices from talking to each other. Use a home router or a phone hotspot.
 - "UI not installed": run pio run -t uploadfs.
 - Start over: tap Reset credentials on the dashboard, or run pio run -t erase and flash again.
+- Linux "Permission denied" on /dev/ttyUSB0 or /dev/ttyACM0: add your user to the dialout group (see Flash the board).
 
 ## Author
 
-Walusungu Nyirenda - [GitHub](https://github.com/walusungunyirendaa)
+Walusungu Nyirenda - [GitHub](https://github.com/YOUR-USERNAME)
