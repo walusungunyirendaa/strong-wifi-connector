@@ -139,4 +139,4 @@ Copy everything inside frontend/dist into firmware/data, then run pio run -t upl
 
 ## Author
 
-Walusungu Nyirenda - [GitHub](https://github.com/YOUR-USERNAME)
+Walusungu Nyirenda - [GitHub](https://github.com/walusungunyirendaa)
